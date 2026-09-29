@@ -23,7 +23,7 @@ Docente: Cristian David Henao Hoyos. El usuario `yrivera` está como Lector en J
 | Parte | Tecnología |
 |---|---|
 | Backend (`backend/`) | **Spring Boot 4.1.1**, Java 21 y Maven Wrapper. Initializr trajo la versión 4; algunas guías dicen 3. Incluye Web, Security, Validation, Data JPA, MySQL, Flyway, Lombok, Actuator y H2. Paquete `co.trendly`. |
-| Frontend (`frontend/`) | React 19, Vite 8 y ESLint. **Vitest todavía no está instalado**; se instala en SCRUM-28. |
+| Frontend (`frontend/`) | React 19, Vite 8, ESLint y Vitest 5 (jsdom, Testing Library, cobertura v8). |
 | Base de datos | MySQL 8. Para desarrollo local, `docker-compose.yml` (pendiente, SCRUM-29). |
 | Infraestructura planeada | Azure Functions (job cada 6 h), Azure App Service + MySQL (S5), Vercel (frontend). |
 | Calidad | GitHub Actions + JaCoCo (≥ 70 %), SonarCloud (S3). |
@@ -50,8 +50,8 @@ Docente: Cristian David Henao Hoyos. El usuario `yrivera` está como Lector en J
 
 | Historia | Resp. | Estado | Hecho | Falta |
 |---|---|---|---|---|
-| SCRUM-27 Repositorio y convenciones | BT | ✅ Finalizado | Repositorio `BrianZuto/Trendly-app` creado con `backend/`, `frontend/` y `docs/`. Commit inicial `a8e4116` en `main` y `develop`. `develop` es la rama por defecto. Protección de `main` y `develop` probada (el push directo fue rechazado). README, `.gitignore`, `.editorconfig`, `.env.example` y plantilla de PR hechos. Raquel (`raquellopez7928`) y Juan David (`JuanDaM01`) aceptaron la invitación. Jira conectado con GitHub ("GitHub for Jira"): ramas, commits y PR aparecen en la pestaña Desarrollo. Documentación de planeación en el PR #1. | Aprobación y merge del PR #1. |
-| SCRUM-28 Pipeline CI | BT | 🔄 Iniciada | Rama local `feature/SCRUM-28-pipeline-ci` creada, con un cambio sin commit en `README.md` (badge del CI apuntando a `BrianZuto/Trendly-app`). | Plugin de JaCoCo (umbral 70 %) en `backend/pom.xml`. Instalar Vitest (`vitest @vitest/coverage-v8 jsdom @testing-library/react`) y los scripts `test` y `coverage`, con una prueba mínima. Crear `.github/workflows/ci.yml` con los jobs `backend` y `frontend`. PR a `develop`. Activar "Require status checks" (`backend`, `frontend`) en las dos ramas. |
+| SCRUM-27 Repositorio y convenciones | BT | ✅ Finalizado | Repositorio `BrianZuto/Trendly-app` creado con `backend/`, `frontend/` y `docs/`. Commit inicial `a8e4116` en `main` y `develop`. `develop` es la rama por defecto. Protección de `main` y `develop` probada (el push directo fue rechazado). README, `.gitignore`, `.editorconfig`, `.env.example` y plantilla de PR hechos. Raquel (`raquellopez7928`) y Juan David (`JuanDaM01`) aceptaron la invitación. Jira conectado con GitHub ("GitHub for Jira"): ramas, commits y PR aparecen en la pestaña Desarrollo. Documentación de planeación integrada con el PR #1. | — |
+| SCRUM-28 Pipeline CI | BT | ✅ Finalizado | `.github/workflows/ci.yml` con los jobs `backend` (`./mvnw -B verify`, JaCoCo con cobertura de líneas ≥ 70 %) y `frontend` (`npm ci`, lint, Vitest con cobertura y build), con caché de Maven y npm. Reportes de cobertura publicados como artefactos (`cobertura-backend`, `cobertura-frontend`). Vitest 5 con jsdom y Testing Library, y la prueba mínima `App.test.jsx`. Badge del CI en el README. Integrado con el PR #2. Checks `backend` y `frontend` obligatorios en `develop` y `main`. Bloqueo verificado con el PR #3 (prueba que falla, cerrado sin integrar). | — |
 | SCRUM-29 Modelo de datos y MySQL | RA | Por hacer | — | ER, Flyway `V1__esquema_inicial.sql`, `docker-compose.yml` y datos iniciales. |
 | SCRUM-30 Registro con política de datos | RA | Por hacer | — | `POST /api/v1/auth/registro`. |
 | SCRUM-31 Login JWT y roles | BT | Por hacer | — | jjwt 0.12.6, `JwtService`, `JwtAuthFilter`, `SecurityConfig`, `AuthController` (`/login` y `/me`), manejo de 401/403 y pruebas con perfil `test` en H2. Hay que coordinar con Raquel la entidad `Usuario`. |
