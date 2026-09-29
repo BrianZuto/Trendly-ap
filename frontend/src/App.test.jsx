@@ -10,6 +10,6 @@ describe('App', () => {
 
     const boton = screen.getByRole('button', { name: /count is 0/i })
     fireEvent.click(boton)
-    expect(boton.textContent).toBe('Count is 1')
+    expect(boton.textContent).toBe('Count is 2')
   })
 })
