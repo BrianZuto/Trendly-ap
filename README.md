@@ -165,7 +165,7 @@ cd frontend && npm run lint   # ESLint
    gh pr create --base develop --fill   # o desde la interfaz de GitHub
    ```
    Completa la plantilla del PR (historia, qué cambia, cómo probarlo, evidencias, checklist).
-5. **Revisión:** otro integrante aprueba el PR y el pipeline debe quedar en verde.
+5. **Revisión:** el pipeline debe quedar en verde (checks `backend` y `frontend`, obligatorios). Pedir revisión a otro integrante es recomendable, pero no obligatorio.
 6. **Merge a `develop`** y borra la rama. Mueve la historia a "Hecho" cuando cumpla la Definición de Hecho.
 7. **Al final de cada sprint**, `develop` se integra en `main`.
 
@@ -175,7 +175,7 @@ cd frontend && npm run lint   # ESLint
 |---|---|---|
 | Ramas | `main`: producción, protegida<br>`develop`: integración, rama por defecto, protegida<br>`feature/SCRUM-XX-descripcion-corta`: una por historia | `feature/SCRUM-30-registro-usuario` |
 | Commits | `SCRUM-XX: mensaje en español e imperativo`. La clave enlaza el commit con la historia en Jira | `SCRUM-31: agrega endpoint de login con JWT` |
-| Pull requests | Siempre hacia `develop`. Requieren 1 aprobación de otro integrante y el pipeline en verde | — |
+| Pull requests | Siempre hacia `develop`. Requieren el pipeline en verde; la aprobación de otro integrante es opcional | — |
 | API | Rutas versionadas bajo `/api/v1` | `/api/v1/productos` |
 | Formato | Definido en `.editorconfig`: UTF-8, LF, 4 espacios en Java/XML, 2 en JS/JSON/CSS/YAML/Markdown | — |
 
@@ -185,7 +185,7 @@ cd frontend && npm run lint   # ESLint
 
 Una historia está terminada cuando:
 
-- [ ] Su PR fue aprobado e integrado a `develop`.
+- [ ] Su PR fue integrado a `develop`.
 - [ ] El pipeline de CI está en verde (y el quality gate de SonarCloud desde el Sprint 3).
 - [ ] Cumple todos sus criterios de aceptación.
 

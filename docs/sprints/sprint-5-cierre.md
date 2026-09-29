@@ -110,6 +110,6 @@ Documentar el uso del sistema y medir su usabilidad (objetivo específico 3: SUS
 
 ## Definición de Hecho
 
-- [ ] El código está en `develop` por medio de un pull request aprobado por otro integrante.
+- [ ] El código está en `develop` por medio de un pull request.
 - [ ] El pipeline está en verde, y desde este sprint también el quality gate de SonarCloud.
 - [ ] Se cumplen sus criterios de aceptación.
