@@ -302,6 +302,6 @@ Tener el frontend publicado y actualizándose solo con cada cambio.
 
 ## Definición de Hecho
 
-- [ ] El código está en `develop` por medio de un pull request aprobado por otro integrante.
+- [ ] El código está en `develop` por medio de un pull request.
 - [ ] El pipeline está en verde.
 - [ ] Se cumplen sus criterios de aceptación.

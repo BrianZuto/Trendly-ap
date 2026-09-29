@@ -30,10 +30,10 @@ Docente: Cristian David Henao Hoyos. El usuario `yrivera` está como Lector en J
 
 ## Convenciones (acordadas)
 
-- Ramas: `main` (producción) y `develop` (integración y rama por defecto), las dos **protegidas**. Solo se cambian por PR con 1 aprobación, y la regla no se puede saltar. Las ramas de trabajo se llaman `feature/SCRUM-XX-descripcion`.
+- Ramas: `main` (producción) y `develop` (integración y rama por defecto), las dos **protegidas**. Solo se cambian por PR con los checks `backend` y `frontend` en verde, y la regla no se puede saltar. Desde el 28/09/2026, por decisión del equipo, la aprobación de otro integrante ya no es obligatoria (antes se exigía 1). Las ramas de trabajo se llaman `feature/SCRUM-XX-descripcion`.
 - Commits: `SCRUM-XX: mensaje`.
 - Los PR van siempre a `develop`. Al final de cada sprint, `develop` se pasa a `main`.
-- Definición de Hecho: PR aprobado, pipeline en verde (y quality gate de SonarCloud desde el S3), y criterios de aceptación cumplidos.
+- Definición de Hecho: PR integrado a `develop`, pipeline en verde (y quality gate de SonarCloud desde el S3), y criterios de aceptación cumplidos.
 - Secretos solo en `.env` (ignorado por Git). Plantilla en `.env.example`. El JWT vence en **1 hora** (3600000 ms).
 
 ## Estado por sprint

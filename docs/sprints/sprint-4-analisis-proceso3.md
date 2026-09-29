@@ -254,6 +254,6 @@ Avisarle al vendedor en el celular al mismo tiempo que llega el correo.
 
 ## Definición de Hecho
 
-- [ ] El código está en `develop` por medio de un pull request aprobado por otro integrante.
+- [ ] El código está en `develop` por medio de un pull request.
 - [ ] El pipeline está en verde, y desde este sprint también el quality gate de SonarCloud.
 - [ ] Se cumplen sus criterios de aceptación.
