@@ -2,7 +2,7 @@
 
 Plataforma web (con extensión móvil) de análisis de precios y productos para comercio electrónico y dropshipping en Colombia y Latinoamérica.
 
-![CI](https://github.com/<usuario>/trendly/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/BrianZuto/Trendly-app/actions/workflows/ci.yml/badge.svg)](https://github.com/BrianZuto/Trendly-app/actions/workflows/ci.yml)
 <!-- SonarCloud: badge pendiente (Sprint 3) -->
 
 ## Problema y solución
@@ -36,12 +36,12 @@ Roles del sistema: `ADMIN` y `VENDEDOR`.
 | Autenticación | JWT con jjwt | Pendiente (Sprint 2) |
 | Base de datos | MySQL 8 en desarrollo y producción; H2 solo para pruebas | Local con Docker pendiente (SCRUM-29) |
 | Frontend | SPA con React 19 + Vite 8, ESLint | Proyecto base creado |
-| Frontend (librerías) | Axios, Recharts (gráficas), Vitest (pruebas) | Pendiente (Sprint 2) |
+| Frontend (librerías) | Axios, Recharts (gráficas), Vitest (pruebas) | Vitest configurado; Axios y Recharts pendientes |
 | Móvil | React Native con Expo y notificaciones push | Pendiente (Sprint 4) |
 | Scraping | Jsoup (Selenium solo para AliExpress si es necesario), adaptadores por marketplace (patrón Strategy/Adapter), Resilience4j para reintentos y limitador de tasa | Pendiente (Sprint 3) |
 | Job programado | Azure Functions (timer cada 6 horas) que llama a un endpoint interno del backend | Pendiente (Sprint 3) |
 | Despliegue | Backend en Azure App Service con MySQL; frontend en Vercel | Pendiente |
-| Calidad | GitHub Actions (CI), JaCoCo (cobertura ≥ 70 %), SonarCloud (quality gate) | CI y JaCoCo pendientes (Sprint 2); SonarCloud pendiente (Sprint 3) |
+| Calidad | GitHub Actions (CI), JaCoCo (cobertura ≥ 70 %), SonarCloud (quality gate) | CI y JaCoCo configurados (SCRUM-28); SonarCloud pendiente (Sprint 3) |
 
 ### Estructura del monorepo
 
@@ -138,11 +138,12 @@ Disponible en http://localhost:5173.
 cd backend && ./mvnw verify
 
 # Frontend
-cd frontend && npm test       # Vitest, pendiente (Sprint 2)
+cd frontend && npm test       # Vitest
+cd frontend && npm run coverage  # Vitest con reporte en frontend/coverage/
 cd frontend && npm run lint   # ESLint
 ```
 
-Cuando se configure JaCoCo (pendiente, Sprint 2), `./mvnw verify` también generará el reporte de cobertura en `backend/target/site/jacoco/index.html`.
+`./mvnw verify` también genera el reporte de cobertura de JaCoCo en `backend/target/site/jacoco/index.html` y falla si la cobertura de líneas baja del 70 %. El pipeline de GitHub Actions (`.github/workflows/ci.yml`) ejecuta lo mismo en cada PR y publica los reportes como artefactos.
 
 ## Flujo de trabajo con Git
 
